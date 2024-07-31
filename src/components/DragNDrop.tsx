@@ -42,8 +42,7 @@ function DragNDrop({ data }: DragNDropProps) {
             return;
         }
 
-        //modify to swap places
-        if (e.target !== dragNode.current) {
+        /*if (e.target !== dragNode.current) {
             console.log("Target is not the same");
             setList((oldList) => {
                 const newList = JSON.parse(JSON.stringify(oldList));
@@ -56,6 +55,31 @@ function DragNDrop({ data }: DragNDropProps) {
                     )
                 );
                 dragItem.current = params;
+                return newList;
+            });
+        }*/
+
+        //Swaping items
+        if (
+            currentItem.grpI !== params.grpI ||
+            currentItem.itemI !== params.itemI
+        ) {
+            setList((oldList) => {
+                // Create a deep copy of the old list to avoid mutating state directly
+                const newList = JSON.parse(JSON.stringify(oldList)) as Group[];
+
+                // Extract the items to swap
+                const draggedItem =
+                    newList[currentItem.grpI].items[currentItem.itemI];
+                const targetItem = newList[params.grpI].items[params.itemI];
+
+                // Swap the items
+                newList[currentItem.grpI].items[currentItem.itemI] = targetItem;
+                newList[params.grpI].items[params.itemI] = draggedItem;
+
+                // Update the reference to the new item position
+                dragItem.current = params;
+
                 return newList;
             });
         }

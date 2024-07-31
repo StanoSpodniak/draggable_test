@@ -45,5 +45,7 @@
 }
 
 .current {
+    color: gray;
     background-color: gray;
+    /*opacity: 0;*/
 }

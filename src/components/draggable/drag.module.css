@@ -1,0 +1,26 @@
+.gameLayout {
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.buttonLayout {
+    width: 70px;
+    height: 70px;
+    border: 2px solid lightgray;
+    border-radius: 6px;
+}
+
+.button {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    background-color: white;
+    cursor: grabbing;
+    font-size: 30px;
+    border: none;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+}
